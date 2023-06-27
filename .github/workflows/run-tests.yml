@@ -1,6 +1,6 @@
 name: Appium Tests
 
-on: [push, pull_request, workflow_dispatch]
+on: [push]
 
 concurrency:
   group: ${{ github.ref }}
