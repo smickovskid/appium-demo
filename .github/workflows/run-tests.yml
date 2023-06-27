@@ -3,7 +3,8 @@ name: Appium Tests
 on: [push, pull_request]
 
 jobs:
-  connected-tests:
+  settings-tests:
+    name: Settings Tests
     runs-on: macos-latest
 
     steps:
