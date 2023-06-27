@@ -12,7 +12,3 @@
 1. `yarn install`
 2. `yarn test`
 3. Report located at `./mochawesome-report/index.html`
-
-
-#### Github actions
-1. Workflow can be dispatched manually and on new commits

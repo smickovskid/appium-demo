@@ -5,7 +5,7 @@ import { getConfig } from '../../appium-conf';
 describe("Settings suite", async () => {
     const config = getConfig('android');
 
-    it("should open settings", async () => {
+    it("Should open settings -> Battery", async () => {
         const driver = await remote(config);
         try {
             const batteryItem = await driver.$('//*[@text="Battery"]');
