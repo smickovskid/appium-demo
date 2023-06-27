@@ -48,8 +48,8 @@ jobs:
         APPIUM_HOST: localhost
         LOG_LEVEL: info
       with:
-        api-level: 30
-        target: google_apis
+        api-level: 33
+        target: default
         arch: x86_64
         script: yarn test
 
