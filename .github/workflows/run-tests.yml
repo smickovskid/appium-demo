@@ -2,6 +2,10 @@ name: Appium Tests
 
 on: [push, pull_request, workflow_dispatch]
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   settings-tests:
     name: Settings Tests

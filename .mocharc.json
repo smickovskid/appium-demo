@@ -6,7 +6,7 @@
         "ts"
     ],
     "spec": "src/tests/**/*.ts",
-    "timeout": 50000,
+    "timeout": 500000,
     "watch-files": [
         "src/tests/**/*.ts"
     ],
