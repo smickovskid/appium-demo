@@ -1,6 +1,6 @@
 name: Appium Tests
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   settings-tests:
@@ -28,13 +28,12 @@ jobs:
         distribution: 'adopt'
         java-version: '17'
 
-    - name: Run connected tests
+    - name: Setup emulator
       uses: ReactiveCircus/android-emulator-runner@v2
       with:
         api-level: 30
         target: google_apis
         arch: x86_64
-        script: ./gradlew connectedCheck
 
     - name: Install Appium
       run: npm install -g appium
