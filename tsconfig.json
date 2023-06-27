@@ -9,9 +9,15 @@
         "outDir": "dist",
         "baseUrl": "./src",
         "paths": {
+            "@config/*": [
+                "config/*"
+            ],
             "@tests/*": [
                 "tests/*"
             ],
+            "@screens/*": [
+                "screens/*"
+            ]
         },
         "strict": true
     },
