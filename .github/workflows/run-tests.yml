@@ -28,14 +28,6 @@ jobs:
         distribution: 'adopt'
         java-version: '17'
 
-    - name: Setup emulator
-      uses: ReactiveCircus/android-emulator-runner@v2
-      with:
-        api-level: 30
-        target: google_apis
-        arch: x86_64
-        script: echo "Created emulator"
-
     - name: Install Appium
       run: npm install -g appium
 
@@ -43,8 +35,13 @@ jobs:
       run: appium &
 
     - name: Run tests
+      uses: ReactiveCircus/android-emulator-runner@v2
       env:
         APPIUM_PORT: 4723
         APPIUM_HOST: localhost
         LOG_LEVEL: info
-      run: yarn test
+      with:
+        api-level: 30
+        target: google_apis
+        arch: x86_64
+        script: yarn test
