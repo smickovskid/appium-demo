@@ -30,6 +30,9 @@ jobs:
 
     - name: Install Appium
       run: npm install -g appium@next
+    
+    - name: Install UIAutomator2
+      run: appium driver install uiautomator2
 
     - name: Run Appium
       run: appium &
@@ -45,3 +48,9 @@ jobs:
         target: google_apis
         arch: x86_64
         script: yarn test
+
+    - name: Upload HTML artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: report
+        path: mochawesome-report/
