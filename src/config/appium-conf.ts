@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-
+import { RemoteOptions } from 'webdriverio';
 dotenv.config();
 
 
@@ -13,24 +13,21 @@ if (!APPIUM_PORT) {
   throw new Error("Missing APPIUM_PORT")
 }
 
-const capabilitiesAndroid = {
-  platformName: 'Android',
-  'appium:automationName': 'UiAutomator2',
-  'appium:deviceName': 'Android',
-  'appium:appPackage': 'com.android.settings',
-  'appium:appActivity': '.Settings',
-};
-
-const capabilitiesIOS = {
-  // For demo purposes not implemented
-};
-
-
-export const getConfig = (platform: 'android' | 'ios') => {
+export const getBaseAndroidCapabilities = (appPackage: string, appActivity: string) => {
   return {
-    host: APPIUM_HOST,
+    platformName: 'Android',
+    'appium:automationName': 'UiAutomator2',
+    'appium:deviceName': 'Android',
+    'appium:appPackage': appPackage,
+    'appium:appActivity': appActivity,
+  }
+}
+
+export const getConfig = (capabilities: any): RemoteOptions => {
+  return {
+    hostname: APPIUM_HOST,
     port: parseInt(APPIUM_PORT),
-    logLevel: LOG_LEVEL || 'info',
-    capabilities: platform === 'android' ? capabilitiesAndroid : capabilitiesIOS,
+    logLevel: LOG_LEVEL ? LOG_LEVEL as 'info' : 'info',
+    capabilities: capabilities
   }
 }

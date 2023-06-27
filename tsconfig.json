@@ -7,6 +7,12 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "outDir": "dist",
+        "types": [
+            "node",
+            "mocha",
+            "@wdio/globals/types",
+            "@wdio/mocha-framework"
+        ],
         "baseUrl": "./src",
         "paths": {
             "@config/*": [
